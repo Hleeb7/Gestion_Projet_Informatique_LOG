@@ -19,7 +19,7 @@ ob_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ETPVISIO</title>
+
     <!-- Bootstrap core CSS -->
     <link href="contenu/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -43,9 +43,7 @@ ob_start();
     <div class="container">
 
 
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -56,20 +54,13 @@ ob_start();
 
 
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.php?page=faq" style="color: #333;">FAQ</a>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.php?page=inscriconf" style="color: #333;">Planning conférence</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php?page=web" style="color: #333;">Serveur Web</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.php?page=rejoindreconference" style="color: #333;">Rejoindre conférence</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php?page=sql" style="color: #333;">Site SQL</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="index.php?page=contact" style="color: #333;">Contact</a>
+                    <a class="nav-link js-scroll-trigger" href="index.php?page=authentif" style="color: #333;">Connexion</a>
                 </li>
 
 
@@ -91,16 +82,6 @@ ob_start();
 </main>
 
 <!-- Bootstrap core JavaScript -->
-<script src="contenu/vendor/jquery/jquery.min.js"></script>
-<script src="contenu/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="contenu/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="contenu/vendor/scrollreveal/scrollreveal.min.js"></script>
-<script src="contenu/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="contenu/js/creative.min.js"></script>
 
 </body>
 

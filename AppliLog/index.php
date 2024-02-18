@@ -24,29 +24,17 @@ if (isset($_GET["page"])) {//verification de la selection
         case "authentif":
             authentification();
             break;
-        case "contact":
-        contact();
+        case "serveurWeb":
+        web();
             break;
-        case "faq":
-            faq();
+        case "serveursql":
+            sql();
             break;
-        case "test":
-            test();
-            break;
-        case "creeconf":
-            creationConference();
-            break;
+
         case "deco":
             session_unset();
           header(  'Location: index.php');
           break;
-        case "inscriconf":
-            inscriptionconf();
-            break;
-
-            case "rejoindreconference":
-                rejoindreconference();
-                break;
 
             }
 } else {
