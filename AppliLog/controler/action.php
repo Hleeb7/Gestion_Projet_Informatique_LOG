@@ -39,17 +39,19 @@ ob_start();
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#">TESTT</a>
-
+            <a class="navbar-brand" href="#">Votre Marque</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link js-scroll-trigger" href="index.php">Accueil</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link js-scroll-trigger" href="index.php?page=web">Serveur Web</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link js-scroll-trigger" href="index.php?page=sql">Site SQL</a>
                     </li>
                     <li class="nav-item">
@@ -68,7 +70,6 @@ ob_start();
     <script type="text/javascript" src="contenu/js/creative.min.js"></script>
     </body>
     </html>
-
 
 
 <div id="contenu">
