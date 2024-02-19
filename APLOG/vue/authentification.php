@@ -40,7 +40,7 @@ ob_start();
             $mdp = $_POST["mdp"];
             if ($login != null && $mdp != null) {
 
-                $authen = get_authentif($login, $mdp);
+              /*  $authen = get_authentif($login, $mdp);
                 if ($authen == false) {
                     erreurlogmdp();
                 } else {
@@ -48,7 +48,8 @@ ob_start();
                     $_SESSION["connecter"] = true;
                     $_SESSION["login"] = $login;
                     header("Refresh: 0.1; URL=http://localhost/APLOG/index.php");//refresh obligatoire pour laisser le temps a wamp de charger
-                }
+                }*/
+                echo TESTB();
             } else {
                 echo "erreur	 champ";
             }

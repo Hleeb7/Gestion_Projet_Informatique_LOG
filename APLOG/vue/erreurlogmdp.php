@@ -11,7 +11,7 @@
 </head>
 <body>
 Votre mot de passe ou login et invalide ou ce compte n'existe pas.<br>
-Veuillez contacter l'administrateur du site "mettre lien contact formulaire de contact ici".
+Veuillez contacter l'administrateur du site.
 <br>
 
 </body>
