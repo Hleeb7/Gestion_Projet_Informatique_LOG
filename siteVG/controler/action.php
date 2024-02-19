@@ -59,8 +59,6 @@ ob_start();
                     <a class="nav-link js-scroll-trigger" href="index.php?page=faq" style="color: #333;">FAQ</a>
                 </li>
 
-
-
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="index.php?page=inscriconf" style="color: #333;">Planning conférence</a>
                 </li>
@@ -71,16 +69,11 @@ ob_start();
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="index.php?page=contact" style="color: #333;">Contact</a>
                 </li>
-
-
-
-
             </ul>
 
         </div>
     </div>
 </nav>
-
 
 <div id="contenu">
     <?php

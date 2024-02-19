@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>modele.php</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,0); }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+.s5 { color: rgb(128,128,128); font-weight: bold; font-style: italic; }
+.s6 { color: rgb(102,0,0); }
+.s7 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+modele.php</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;?php</span><span class="s1"> 
+</span><span class="s2">/** 
+ * Created by PhpStorm. 
+ * User: vincent 
+ * Date: 25/03/2018 
+ * Time: 12:23 
+ */</span><span class="s1"> 
+</span><span class="s2">//Fichier ou ce situe tout les demandes a la base de donnée</span><span class="s1"> 
+</span><span class="s0">include_once </span><span class="s3">dirname</span><span class="s1">(</span><span class="s3">__FILE__</span><span class="s1">) . </span><span class="s4">'/connexion.php'</span><span class="s1">;</span><span class="s2">//inclusion fonction de connexion bdd</span><span class="s1"> 
+</span><span class="s2">//////////////////////////////////////////////////////////////////</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$numAdd 
+ * </span><span class="s5">@param </span><span class="s2">$id_session 
+ * </span><span class="s5">@return </span><span class="s2">bool 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_inscription</span><span class="s1">(</span><span class="s6">$numAdd</span><span class="s1">, </span><span class="s6">$id_session</span><span class="s1">)</span><span class="s2">//inscription de l'utilisateur a une session de formation dans la table inscription</span><span class="s1"> 
+{ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+ 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;INSERT INTO `inscription`(`numsession`, `numadherent`) VALUES (</span><span class="s6">$id_session</span><span class="s4">,</span><span class="s6">$numAdd</span><span class="s4">);&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+ 
+    </span><span class="s0">if </span><span class="s1">(</span><span class="s6">$res</span><span class="s1">) </span><span class="s0">return </span><span class="s3">true</span><span class="s1">; 
+    </span><span class="s0">else return </span><span class="s3">false</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$login 
+ * </span><span class="s5">@param </span><span class="s2">$mdp 
+ * </span><span class="s5">@param </span><span class="s2">$nom 
+ * </span><span class="s5">@param </span><span class="s2">$prenom 
+ * </span><span class="s5">@param </span><span class="s2">$mail 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_inscriptionadh</span><span class="s1">(</span><span class="s6">$login</span><span class="s1">, </span><span class="s6">$mdp</span><span class="s1">, </span><span class="s6">$nom</span><span class="s1">, </span><span class="s6">$prenom</span><span class="s1">, </span><span class="s6">$mail</span><span class="s1">)</span><span class="s2">//CREATION d'un compte utilisateur +controle si un compte similaire  existe</span><span class="s1"> 
+{ 
+    </span><span class="s6">$login </span><span class="s1">= </span><span class="s3">md5</span><span class="s1">(</span><span class="s6">$login</span><span class="s1">); 
+    </span><span class="s6">$mdp </span><span class="s1">= </span><span class="s3">md5</span><span class="s1">(</span><span class="s6">$mdp</span><span class="s1">); 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;select login from adherent where login='</span><span class="s6">$login</span><span class="s4">'&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">);</span><span class="s2">//Bug car res ne suffit pas donc row = tab vide = false donc login existepas</span><span class="s1"> 
+    </span><span class="s0">if </span><span class="s1">(</span><span class="s6">$row </span><span class="s1">== </span><span class="s3">true</span><span class="s1">) { 
+        </span><span class="s0">echo </span><span class="s4">'Login deja utilisé'</span><span class="s1">; 
+    } </span><span class="s0">else </span><span class="s1">{ 
+        </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;INSERT INTO adherent (login,mdp,nom,prenom,mail) VALUES ('</span><span class="s6">$login</span><span class="s4">','</span><span class="s6">$mdp</span><span class="s4">','</span><span class="s6">$nom</span><span class="s4">','</span><span class="s6">$prenom</span><span class="s4">','</span><span class="s6">$mail</span><span class="s4">');&quot;</span><span class="s1">; 
+        </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+        </span><span class="s0">echo </span><span class="s4">&quot;compte crée redirection vers l'index.&quot;</span><span class="s1">; 
+        </span><span class="s3">header</span><span class="s1">(</span><span class="s4">&quot;Refresh: 0.1; URL=http://localhost/ppe/index.php&quot;</span><span class="s1">); 
+ 
+    } 
+ 
+} 
+ 
+ 
+</span><span class="s2">///////////VALIDER</span><span class="s1"> 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$numadherent 
+ * </span><span class="s5">@return </span><span class="s2">array 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_mesformation</span><span class="s1">(</span><span class="s6">$numadherent</span><span class="s1">)</span><span class="s2">/// permet de recupérer les formations et date ou on s'inscrit</span><span class="s1"> 
+{ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Select nomformation,datelimite  
+from inscription,formation,session  
+where 
+inscription.numsession=session.numsession  
+AND formation.numformation=session.numformation  
+And inscription.numadherent='</span><span class="s6">$numadherent</span><span class="s4">';&quot;</span><span class="s1">; 
+    </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">exec</span><span class="s1">(</span><span class="s4">'SET NAMES utf8'</span><span class="s1">); 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s2">/////////////////////////authentification</span><span class="s1"> 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$login 
+ * </span><span class="s5">@param </span><span class="s2">$mdp 
+ * </span><span class="s5">@return </span><span class="s2">bool 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_authentif</span><span class="s1">(</span><span class="s6">$login</span><span class="s1">, </span><span class="s6">$mdp</span><span class="s1">)</span><span class="s2">//controle la connexion</span><span class="s1"> 
+{ 
+    </span><span class="s6">$logincrypt </span><span class="s1">= </span><span class="s3">md5</span><span class="s1">(</span><span class="s6">$login</span><span class="s1">); 
+    </span><span class="s6">$mdpcrypt </span><span class="s1">= </span><span class="s3">md5</span><span class="s1">(</span><span class="s6">$mdp</span><span class="s1">); 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;select login,mdp,numadherent  from adherent where login='</span><span class="s6">$logincrypt</span><span class="s4">' and mdp='</span><span class="s6">$mdpcrypt</span><span class="s4">'&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchAll</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">if </span><span class="s1">(</span><span class="s6">$row </span><span class="s1">== </span><span class="s3">true</span><span class="s1">) { 
+        </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">[</span><span class="s7">0</span><span class="s1">][</span><span class="s4">'numadherent'</span><span class="s1">]; 
+    } </span><span class="s0">else </span><span class="s1">{ 
+        </span><span class="s0">return </span><span class="s3">false</span><span class="s1">; 
+    } 
+} 
+ 
+</span><span class="s2">/////////////////////////////////////</span><span class="s1"> 
+</span><span class="s2">/** 
+ * </span><span class="s5">@return </span><span class="s2">array 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_toutlisteformation</span><span class="s1">()</span><span class="s2">//recupere info de toute les formation</span><span class="s1"> 
+{ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Select * from lieu,formation, 
+session where session.numformation=formation.numformation  
+And lieu.idlieu=session.idlieu Group By formation.numformation; &quot;</span><span class="s1">; 
+    </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">exec</span><span class="s1">(</span><span class="s4">'SET NAMES utf8'</span><span class="s1">); 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s2">///</span><span class="s1"> 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$numformation 
+ * </span><span class="s5">@return </span><span class="s2">array 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_detailformation</span><span class="s1">(</span><span class="s6">$numformation</span><span class="s1">)</span><span class="s2">//récup détail de la formation selectioner sur la page formation.php</span><span class="s1"> 
+{ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Select * from lieu,formation, 
+session where session.numformation=formation.numformation  
+And lieu.idlieu=session.idlieu  and formation.numformation='</span><span class="s6">$numformation</span><span class="s4">'; &quot;</span><span class="s1">; 
+    </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">exec</span><span class="s1">(</span><span class="s4">'SET NAMES utf8'</span><span class="s1">); 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$numformation 
+ * </span><span class="s5">@return </span><span class="s2">array 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_sessionvalide</span><span class="s1">(</span><span class="s6">$numformation</span><span class="s1">) </span><span class="s2">//Permet de controler les dates de session</span><span class="s1"> 
+{ 
+    </span><span class="s6">$date </span><span class="s1">= </span><span class="s3">date</span><span class="s1">(</span><span class="s4">&quot;Y-m-d&quot;</span><span class="s1">); 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Select datelimite,numsession from lieu,formation, 
+session where session.numformation=formation.numformation  
+And lieu.idlieu=session.idlieu   
+and formation.numformation='</span><span class="s6">$numformation</span><span class="s4">' 
+ and session.datelimite&gt;='</span><span class="s6">$date</span><span class="s4">' 
+  order by datelimite ASC 
+      ;&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+} 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$nomformation 
+ * </span><span class="s5">@param </span><span class="s2">$datelimite 
+ * </span><span class="s5">@return </span><span class="s2">array 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_numsession</span><span class="s1">(</span><span class="s6">$nomformation</span><span class="s1">, </span><span class="s6">$datelimite</span><span class="s1">)</span><span class="s2">//récup le num de session en fct du nom de la formation et de sa date</span><span class="s1"> 
+{ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Select numsession from session,formation 
+Where session.datelimite='</span><span class="s6">$datelimite</span><span class="s4">' 
+And formation.nomformation='</span><span class="s6">$nomformation</span><span class="s4">' 
+;&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">fetchall</span><span class="s1">(</span><span class="s3">PDO</span><span class="s1">::</span><span class="s3">FETCH_ASSOC</span><span class="s1">); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+ 
+} 
+ 
+ 
+</span><span class="s2">/** 
+ * </span><span class="s5">@param </span><span class="s2">$numsession 
+ * </span><span class="s5">@param </span><span class="s2">$numadherent 
+ * </span><span class="s5">@return </span><span class="s2">bool 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">get_deleteinscriptionformation</span><span class="s1">(</span><span class="s6">$numsession</span><span class="s1">, </span><span class="s6">$numadherent</span><span class="s1">)</span><span class="s2">//  suppression  d'une inscription  a une formations</span><span class="s1"> 
+{ 
+ 
+    </span><span class="s6">$cnx </span><span class="s1">= </span><span class="s3">connexion</span><span class="s1">(); 
+    </span><span class="s6">$sql </span><span class="s1">= </span><span class="s4">&quot;Delete  
+  from inscription 
+where 
+numsession='</span><span class="s6">$numsession</span><span class="s4">' 
+and 
+numadherent='</span><span class="s6">$numadherent</span><span class="s4">'; 
+&quot;</span><span class="s1">; 
+    </span><span class="s6">$res </span><span class="s1">= </span><span class="s6">$cnx</span><span class="s1">-&gt;</span><span class="s3">query</span><span class="s1">(</span><span class="s6">$sql</span><span class="s1">); 
+    </span><span class="s6">$row </span><span class="s1">= </span><span class="s6">$res</span><span class="s1">-&gt;</span><span class="s3">execute</span><span class="s1">(); 
+    </span><span class="s0">return </span><span class="s6">$row</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s0">?&gt;</span></pre>
+</body>
+</html>

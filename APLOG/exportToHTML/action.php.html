@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>action.php</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,0); }
+.s4 { color: rgb(102,0,0); }
+.s5 { color: rgb(0,0,0); }
+.s6 { color: rgb(0,0,0); }
+.s7 { color: rgb(0,0,128); font-weight: bold; }
+.s8 { color: rgb(0,0,255); font-weight: bold; }
+.s9 { color: rgb(0,128,0); font-weight: bold; }
+.s10 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+action.php</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;?php</span><span class="s1"> 
+</span><span class="s2">/** 
+ * Created by PhpStorm. 
+ * User: vincent 
+ * Date: 25/03/2018 
+ * Time: 12:23 
+ */</span><span class="s1"> 
+ 
+ 
+ 
+ 
+ 
+</span><span class="s0">function </span><span class="s3">render</span><span class="s1">(</span><span class="s4">$contenu</span><span class="s1">,</span><span class="s4">$title</span><span class="s1">)</span><span class="s2">//afficheur des vue via le contenu</span><span class="s1"> 
+{ 
+ 
+    </span><span class="s3">ob_start</span><span class="s1">(); 
+    </span><span class="s0">?&gt;</span><span class="s5"> 
+ 
+    </span><span class="s6">&lt;</span><span class="s7">html</span><span class="s6">&gt;</span><span class="s5"> 
+</span><span class="s6">&lt;</span><span class="s7">head</span><span class="s6">&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;</span><span class="s7">meta </span><span class="s8">http-equiv=</span><span class="s9">&quot;Content-Type&quot; </span><span class="s8">content=</span><span class="s9">&quot;text/html; charset=utf-8&quot; </span><span class="s6">/&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;</span><span class="s7">title</span><span class="s6">&gt;</span><span class="s0">&lt;?php echo </span><span class="s4">$title</span><span class="s1">; </span><span class="s0">?&gt;</span><span class="s6">&lt;/</span><span class="s7">title</span><span class="s6">&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;</span><span class="s7">link </span><span class="s8">rel=</span><span class="s9">&quot;stylesheet&quot; </span><span class="s8">href=</span><span class="s9">&quot;contenu/css/css.css&quot;</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+</span><span class="s6">&lt;/</span><span class="s7">head</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+</span><span class="s6">&lt;</span><span class="s7">body</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+</span><span class="s6">&lt;</span><span class="s7">main</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+    </span><span class="s6">&lt;</span><span class="s7">header</span><span class="s6">&gt;</span><span class="s5"> 
+        </span><span class="s6">&lt;</span><span class="s7">h2</span><span class="s6">&gt;&lt;</span><span class="s7">a </span><span class="s8">title=</span><span class="s9">&quot;Retour  l'index du site&quot; </span><span class="s8">href=</span><span class="s9">&quot;index.php&quot;</span><span class="s6">&gt;</span><span class="s5">M2L</span><span class="s6">&lt;/</span><span class="s7">a</span><span class="s6">&gt;&lt;/</span><span class="s7">h2</span><span class="s6">&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;/</span><span class="s7">header</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+    </span><span class="s6">&lt;</span><span class="s7">nav</span><span class="s6">&gt;</span><span class="s5"> 
+        </span><span class="s6">&lt;</span><span class="s7">h3</span><span class="s6">&gt;</span><span class="s5">Menu</span><span class="s6">&lt;/</span><span class="s7">h3</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+        </span><span class="s6">&lt;</span><span class="s7">ul</span><span class="s6">&gt;</span><span class="s5"> 
+            </span><span class="s6">&lt;</span><span class="s7">li</span><span class="s6">&gt;&lt;</span><span class="s7">a </span><span class="s8">title=</span><span class="s9">&quot;Pour consulter les formations&quot; </span><span class="s8">href=</span><span class="s9">&quot;index.php?page=formation&quot;</span><span class="s6">&gt;</span><span class="s5">Nos formations</span><span class="s6">&lt;/</span><span class="s7">a</span><span class="s6">&gt;&lt;/</span><span class="s7">li</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+            </span><span class="s0">&lt;?php if </span><span class="s1">(</span><span class="s0">isset</span><span class="s1">(</span><span class="s4">$_SESSION</span><span class="s1">[</span><span class="s10">&quot;connecter&quot;</span><span class="s1">]) == </span><span class="s3">true</span><span class="s1">) { 
+                </span><span class="s0">echo </span><span class="s10">&quot;&lt;li&gt;&lt;a title='Formations ou vous etes inscrit' href='index.php?page=mesformations'&gt;Mes formations&lt;/a&gt;&lt;/li&gt;&quot;</span><span class="s1">; 
+                </span><span class="s0">echo </span><span class="s10">&quot;&lt;li&gt;&lt;a title='Pour ce déconnecter'href='index.php?page=deconnexion'&gt;Deconnexion&lt;/a&gt;&lt;/li&gt;&quot;</span><span class="s1">; 
+                 
+            }</span><span class="s0">else </span><span class="s1">{ 
+                </span><span class="s0">echo </span><span class="s10">&quot;&lt;li&gt;&lt;a  title='Pour crée un compte' href='index.php?page=inscription'&gt;Inscription&lt;/a&gt;&lt;/li&gt;&quot;</span><span class="s1">; 
+                </span><span class="s0">echo </span><span class="s10">&quot;&lt;li&gt;&lt;a  title='Pour ce connecter'href='index.php?page=cnx'&gt;Connexion&lt;/a&gt;&lt;/li&gt;&quot;</span><span class="s1">; 
+            } 
+ 
+ 
+            </span><span class="s0">?&gt;</span><span class="s5"> 
+        </span><span class="s6">&lt;/</span><span class="s7">ul</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+    </span><span class="s6">&lt;/</span><span class="s7">nav</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+    </span><span class="s6">&lt;</span><span class="s7">div </span><span class="s8">id=</span><span class="s9">&quot;contenu&quot;</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+        </span><span class="s0">&lt;?php</span><span class="s1"> 
+        </span><span class="s0">echo </span><span class="s4">$contenu</span><span class="s1">; 
+        </span><span class="s0">?&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;/</span><span class="s7">div</span><span class="s6">&gt;</span><span class="s5"> 
+    </span><span class="s6">&lt;</span><span class="s7">footer</span><span class="s6">&gt;</span><span class="s5">TEST</span><span class="s6">&lt;/</span><span class="s7">footer</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+</span><span class="s6">&lt;/</span><span class="s7">main</span><span class="s6">&gt;</span><span class="s5"> 
+</span><span class="s6">&lt;/</span><span class="s7">body</span><span class="s6">&gt;</span><span class="s5"> 
+ 
+ 
+ 
+    </span><span class="s0">&lt;?php</span><span class="s1"> 
+} 
+ 
+ 
+</span><span class="s2">// Affiche la page d'acceuil</span><span class="s1"> 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">accueil</span><span class="s1">() 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/accueil.php'</span><span class="s1">; 
+} 
+ 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">authentification</span><span class="s1">() 
+ 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/authentification.php'</span><span class="s1">; 
+} 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">erreurauth</span><span class="s1">() 
+ 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/erreurlogmdp.php'</span><span class="s1">; 
+} 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">formation</span><span class="s1">() 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/formation.php'</span><span class="s1">; 
+ 
+} 
+ 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">detail</span><span class="s1">(){ 
+    </span><span class="s0">require </span><span class="s10">'vue/detailformation.php'</span><span class="s1">; 
+ 
+} 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">erreurlogmdp</span><span class="s1">() 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/erreurlogmdp.php'</span><span class="s1">; 
+} 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">validinscri</span><span class="s1">() 
+{ 
+ 
+    </span><span class="s0">require </span><span class="s10">'vue/validationinscri.php'</span><span class="s1">; 
+} 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">mesformations</span><span class="s1">() 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/mesFormations.php'</span><span class="s1">; 
+} 
+ 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">desincription</span><span class="s1">() 
+{ 
+    </span><span class="s0">require </span><span class="s10">'vue/desinscription.php'</span><span class="s1">; 
+} 
+ 
+ 
+</span><span class="s2">/** 
+ * 
+ */</span><span class="s1"> 
+</span><span class="s0">function </span><span class="s3">inscription</span><span class="s1">() 
+{ 
+    </span><span class="s0">require</span><span class="s10">'vue/inscription.php'</span><span class="s1">; 
+} 
+ 
+</span><span class="s0">?&gt;</span></pre>
+</body>
+</html>

@@ -24,7 +24,7 @@ if (isset($_GET["page"])) {//verification de la selection
         case "authentif":
             authentification();
             break;
-        case "serveurWeb":
+        case "web":
         web();
             break;
         case "serveursql":
