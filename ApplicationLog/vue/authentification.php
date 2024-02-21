@@ -15,14 +15,8 @@ $title = "Connexion";
 
 
 ob_start();
-
-        echo "test";
-       //echo TESTB();
-        /*
-         *
-         *
-         *
-         * ?>
+TESTA();
+       ?>
 
     <title>Connexion</title>
 
@@ -43,10 +37,10 @@ ob_start();
             </tr>
         </table>
         <?php
-         *//*if (isset($_POST["login"]) && isset($_POST["mdp"])) {
+         //*if (isset($_POST["login"]) && isset($_POST["mdp"])) {
             $login = $_POST["login"];
             $mdp = $_POST["mdp"];
-            if ($login != null && $mdp != null) {
+            if ($login != null && $mdp != null) {}
 
               /*  $authen = get_authentif($login, $mdp);
                 if ($authen == false) {
