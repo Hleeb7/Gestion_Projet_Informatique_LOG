@@ -3,38 +3,25 @@
  * @return PDO
  */
 
+function recupfichierlog(){
+	$fichierlogaccess=fopen("/var/log/apache2/access.log", "r"); //r : read, w : write, a : append
+	if ($fichierlogaccess==null){
+		echo"<br> Attention, fichier logs introuvable <br>";}
+
+	//$fichier2=file_exists("/var/log/apache2/access.log"); //r : read, w : write, a : append
+
+	//if($fichier2==true){ echo "OK fichier";}
+}
+
 function TESTA()
 {
-	// Informations de connexion SSH
-	$ssh_host = '10.33.32.187'; // Adresse du serveur SSH
-	$ssh_port = 22; // Port SSH
-	$ssh_username = 'zero'; // Nom d'utilisateur SSH
-	$ssh_password = '03021994'; // Mot de passe SSH
-	// Connexion SSH
-	$ssh_connection = ssh2_connect($ssh_host, $ssh_port);
-	echo "ok";
-	if (!$ssh_connection) {
-		die('La connexion SSH a échoué.');
-	}
-	if (!ssh2_auth_password($ssh_connection, $ssh_username, $ssh_password)) {
-		die('L\'authentification SSH a échoué.');
-	}
-	// Informations de connexion à la base de données MySQL
-	$db_host = '10.33.32.187'; // Adresse du serveur MySQL
-	$db_username = 'vicente'; // Nom d'utilisateur MySQL
-	$db_password = 'vicente'; // Mot de passe MySQL
-	$db_name = 'ProjetLOG'; // Nom de la base de données MySQL
-
-	// Connexion à la base de données MySQL via SSH
-	$mysql_connection = ssh2_tunnel($ssh_connection, $db_host, 3306);
-	if (!$mysql_connection) {
-		die('La connexion MySQL à travers SSH a échoué.');
-	}
-
 	// Connexion PDO à la base de données MySQL
 	try {
 
-		$dsn = "mysql:host=10.33.32.187;dbname=$db_name";
+		$db_username = 'vicente'; // Nom d'utilisateur MySQL
+		$db_password = 'vicente'; // Mot de passe MySQL
+
+		$dsn = "mysql:host=10.33.32.187;dbname=ProjetLOG";
 		$pdo = new PDO($dsn, $db_username, $db_password);
 
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

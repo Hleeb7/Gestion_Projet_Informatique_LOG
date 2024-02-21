@@ -29,55 +29,12 @@ function render($contenu,$title)//afficheur des vue via le contenu
 
 <main>
 
-<style>
-   body {
-        color: white; /* Change la couleur du texte en blanc */
-    }
-    nav ul li a {
-    font-size: 20px; /* Changer la taille de la police des éléments de menu */
-    border: 2px solid gray; /* Ajoute une bordure de 2 pixels solide blanche autour de l'élément <nav> */
-    padding: 5px; /* Ajoute un espace intérieur de 10 pixels pour séparer le contenu de la bordure */
-    background-color: white; /* Définit la couleur de fond de l'élément <nav> en blanc */
-}
-    nav ul li a:hover {
-    background-color: gray; /* Changer la couleur de fond lorsque survolé */
-}
-nav {
-    position: fixed; /* Positionnement fixe */
-    top: 0; /* À partir du haut de la fenêtre */
-    left: 0; /* À partir de la gauche de la fenêtre */
-    width: 20%; 
-    background-color: #333; /* Couleur de fond */
-    padding: 10px; /* Espacement intérieur pour un meilleur aspect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
-    z-index: 999; /* Pour s'assurer que le menu apparaît au-dessus des autres éléments */
-}
-header {
-    position: fixed; /* Positionnement fixe */
-    top: 0; /* En haut de la fenêtre */
-    left: 100; /* À gauche de la fenêtre */
-    width: 100%; /* Largeur de 100% */
-
-    padding: 10px; /* Espacement intérieur */
-    text-align: center; /* Alignement du texte au centre */
-    z-index: 999; /* Pour s'assurer que l'en-tête apparaît au-dessus des autres éléments */
-}
-
-</style>
-
     <header>
-        <h2><b title="Retour  l'index du site" href="index.php">Application lecture LOG</b></h2>
+        <h2><a title="Retour  l'index du site" href="index.php">Application lecture LOG</a></h2>
     </header>
-    <style>
-        b {
-            color: white; /* Changement de couleur en noir */
-            
-        }
-    </style>
 
     <nav>
-        <h2>Menu</h2>
-
+        <h3>Menu</h3>
 
 
         <ul>
@@ -95,14 +52,12 @@ header {
             </li>
         </ul>
 
-        <div>
     </nav>
 
 
     <div id="contenu">
 
 
-    
         <?php
         echo $contenu;
         ?>
