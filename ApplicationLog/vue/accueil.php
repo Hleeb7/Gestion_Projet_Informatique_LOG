@@ -8,9 +8,7 @@
 
 $title = 'Accueil';
 
-
-
-$contenu = "<h3>Projet lecture LOG</h3></br></br>
+$contenu = "</br></br></br></br></br><h2>Projet lecture LOG</h2></br></br>
 <p> ICI mettre des truc pour blabla sur ce qu'est le projet </p></br>";
 
 
