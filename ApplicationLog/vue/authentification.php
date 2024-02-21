@@ -15,11 +15,9 @@ $title = "Connexion";
 
 
 ob_start();
-TESTA();
+
        ?>
-
     <title>Connexion</title>
-
     <body>
     <h1>Connexion</h1>
     <form method="post" action="index.php?page=cnx">

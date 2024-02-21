@@ -1,19 +1,9 @@
 <?php // connection a la base de donner
-/**
- * @return PDO
- */
 
-function recupfichierlog(){
-	$fichierlogaccess=fopen("/var/log/apache2/access.log", "r"); //r : read, w : write, a : append
-	if ($fichierlogaccess==null){
-		echo"<br> Attention, fichier logs introuvable <br>";}
 
-	//$fichier2=file_exists("/var/log/apache2/access.log"); //r : read, w : write, a : append
 
-	//if($fichier2==true){ echo "OK fichier";}
-}
 
-function TESTA()
+/*function TESTA()
 {
 	// Connexion PDO à la base de données MySQL
 	try {
@@ -21,7 +11,7 @@ function TESTA()
 		$db_username = 'vicente'; // Nom d'utilisateur MySQL
 		$db_password = 'vicente'; // Mot de passe MySQL
 
-		$dsn = "mysql:host=10.33.32.187;dbname=ProjetLOG";
+		$dsn = "mysql:host=192.168.86.115;dbname=ProjetLOG";
 		$pdo = new PDO($dsn, $db_username, $db_password);
 
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -98,23 +88,7 @@ function TESTA()
 	// Fermeture de la connexion
 	$mysqli->close();
 }
+*/
 
-/*
-function connexion(){
-	try
-	{
-		$cnx = new PDO('mysql:host=127.0.0.1;dbname=ProjetLOG', 'root', '');
-		
-		
-		
-		
-	}
-	catch (Exception $e)
-	{
-		die('Erreur : ' . $e->getMessage());}
-	
-	return $cnx;
- }*/
- 
  
 ?>

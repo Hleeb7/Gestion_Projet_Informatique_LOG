@@ -31,11 +31,14 @@ if (isset($_GET["page"])) {//verification de la selection
         case "webstats":
                 webstats();
                 break;
+        case "accessip":
+                accesparip();
+                break;
         case "sql":
-            sql();
+            error();
             break;
         case "sqllog":
-            sqllog();
+            logerror();
             break;
         case "sqlstats":
             sqlstats();

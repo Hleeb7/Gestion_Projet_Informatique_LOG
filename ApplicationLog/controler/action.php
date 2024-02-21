@@ -10,6 +10,7 @@
 
 
 
+
 function render($contenu,$title)//afficheur des vue via le contenu
 {
 
@@ -19,6 +20,8 @@ function render($contenu,$title)//afficheur des vue via le contenu
     <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="css/css.css">
 
@@ -42,10 +45,10 @@ function render($contenu,$title)//afficheur des vue via le contenu
                 <a class="nav-link js-scroll-trigger" href="index.php">Accueil</a>
             </li>
             <li class="nav-item mr-3">
-                <a class="nav-link js-scroll-trigger" href="index.php?page=web">Serveur Web</a>
+                <a class="nav-link js-scroll-trigger" href="index.php?page=web">Accès Serveur</a>
             </li>
             <li class="nav-item mr-3">
-                <a class="nav-link js-scroll-trigger" href="index.php?page=sql">Site SQL</a>
+                <a class="nav-link js-scroll-trigger" href="index.php?page=sql">Erreurs Serveur</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="index.php?page=cnx">Connexion</a>
@@ -121,26 +124,25 @@ function weblog()
 }
 
 
-function sql()
+function error()
 {
-    require 'vue/SQL.php';
+    require 'vue/erreur.php';
 }
 function sqlstats()
 {
-    require'vue/StatsSQL.php';
+    require'vue/statserreur.php';
 }
-function sqllog()
+function logerror()
 {
-    require 'vue/logSQL.php';
+    require 'vue/logerror.php';
 }
 /**
  *
  */
-function detail(){
-    require 'vue/detailformation.php';
 
+function accesparip(){
+    require 'vue/accessparip.php';
 }
-
 /**
  *
  */
